@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <title>{% block title %}xss{% endblock %}</title>
+    {% block meta %}
+        <meta name="description" content="This Website handles students attendance in Mess.">
+        <link rel="canonical" href="http://192.168.43.50:8000/"/>
+        <meta name="robots" content="index">
+    {% endblock %}
+
+</head>
+<body>
+{% block body %}
+    <form action="/xss/" method="post">
+        <input type="text" name="a">
+        <input type="text" name="b">
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
+</body>
